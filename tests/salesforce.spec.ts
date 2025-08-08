@@ -11,9 +11,12 @@ test('test', async ({ page }) => {
   // log in to the org and test for lightning experience 
   await page.getByRole('textbox', { name: 'Username' }).click();
   await page.getByRole('textbox', { name: 'Username' }).fill(org.username);
+
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(org.password);
+
   await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
+  
   await expect(page.getByRole('button', { name: 'App Launcher' })).toBeVisible({ timeout: 15_000 });
 
   // navigate to the Sales lightning app
