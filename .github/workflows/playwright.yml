@@ -1,7 +1,8 @@
 name: Playwright Tests
 on:
+  # trigger for webhook at https://api.github.com/repos/ildiavolorosso/FlosumPlaywright/dispatches
   repository_dispatch:
-    types: [dependency_update]
+    types: [playwright_tests]
   workflow_dispatch:
     inputs:
       environment:
