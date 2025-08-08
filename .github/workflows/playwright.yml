@@ -1,5 +1,7 @@
 name: Playwright Tests
 on:
+  repository_dispatch:
+    types: [dependency_update]
   workflow_dispatch:
     inputs:
       environment:
