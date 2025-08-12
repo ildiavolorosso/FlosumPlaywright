@@ -16,7 +16,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).fill(org.password);
 
   await page.getByRole('button', { name: 'Log In to Sandbox' }).click();
-  
+
   await expect(page.getByRole('button', { name: 'App Launcher' })).toBeVisible({ timeout: 15_000 });
 
   // navigate to the Sales lightning app
@@ -25,6 +25,16 @@ test('test', async ({ page }) => {
   await page.getByRole('combobox', { name: 'Search apps and items...' }).fill('Sales');
   await page.getByRole('option', { name: 'Sales', exact: true }).click();
 
+  // check for the presence of expected tabs
+  await expect(page.getByRole('link', { name: 'Home' })).toBeVisible({ timeout: 15_000 });
   await expect(page.getByRole('link', { name: 'Opportunities' })).toBeVisible({ timeout: 15_000 });
   await expect(page.getByRole('link', { name: 'Accounts' })).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByRole('link', { name: 'Leads' })).toBeVisible({ timeout: 15_000 });
+
+  // click the New Lead link
+//  await page.getByRole('button', { name: 'Leads List' }).click({ timeout: 15_000 });
+//  await page.getByRole('menuitem', { name: 'New Lead' }).click({ timeout: 15_000 });
+//  await expect(page.getByRole('textbox', { name: 'First Name' })).toBeVisible({ timeout: 15_000 });
+//  await expect(page.getByRole('textbox', { name: '*Last Name' })).toBeVisible({ timeout: 15_000 });
+//  await expect(page.getByRole('textbox', { name: '*Company' })).toBeVisible({ timeout: 15_000 });
 });
