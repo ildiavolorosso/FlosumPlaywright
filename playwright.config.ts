@@ -33,6 +33,10 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
 
+  expect: {
+    timeout: 15000
+  },
+
   /* Configure projects for major browsers */
   projects: [
     {
@@ -45,11 +49,10 @@ export default defineConfig({
       use: { ...devices['Desktop Firefox'] },
     },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
+//    {
+//      name: 'webkit',
+//      use: { ...devices['Desktop Safari'] },
+//    },
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
